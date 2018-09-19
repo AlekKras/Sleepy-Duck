@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Author: Aleksandr Krasnov
+# Hire me: https://www.linkedin.com/in/alekkras
+# In case of any problems, raise an issue
+# If you happen to know how to fix an issue, make a pull request
 apt()
 {
     sudo apt-get update -y
