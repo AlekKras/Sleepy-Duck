@@ -13,7 +13,7 @@ apt()
 
 install_nmap()
 {
-    apt-get insatll nmap -y
+    apt-get install nmap -y
 }
 
 install_nikto()
@@ -23,7 +23,7 @@ install_nikto()
     wget https://github.com/sullo/nikto/archive/master.zip
     unzip master.zip
     cd nikto-master/program
-    apt-get inistall perl -y
+    apt-get install perl -y
     perl nikto.pl
 }
 
@@ -54,16 +54,10 @@ install_hping3()
 
 main()
 {
-    apt-get install xcowsay -y
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo "Let's turn the microphone over the cow!"
     cat art/claps.txt
-    xcowsay Hello, my friend!
-    apt-get install espeak -y
-    espeak "Now, we will ask you few questions to determine your install. If you ever experience any problems with this, it's because you decided not to download everything that is here"
-
     # automatic or manual installation?
     echo -n "Would you like to install everything automatically or manually? (A/M)"
     read ans
