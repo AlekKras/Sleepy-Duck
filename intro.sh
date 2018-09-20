@@ -18,6 +18,8 @@ install_nmap()
 
 install_nikto()
 {
+    mkdir tools
+    cd tools/
     mkdir nikto
     cd nikto/
     wget https://github.com/sullo/nikto/archive/master.zip
@@ -25,25 +27,30 @@ install_nikto()
     cd nikto-master/program
     apt-get install perl -y
     perl nikto.pl
+    cd ../..
 }
 
 install_slowloris()
 {
     apt-get install perl -y
     apt-get install libwww-mechanize-shell-perl
-    apt-get install perl-mechanize
+    apt-get install perl-mechanize && apt-get install libfuture-perl
 }
 
 install_HULK()
 {
     apt-get install git -y
+    cd tools/
     git clone https://github.com/grafov/hulk.git
+    cd ..
 }
 
 install_GoldenEye()
 {
     apt-get install git -y
+    cd tools/
     git clone https://github.com/jseidl/GoldenEye.git
+    cd ..
 }
 
 install_hping3()
@@ -54,16 +61,6 @@ install_hping3()
 
 main()
 {
-    #apt-get install cowsay -y
-    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
-    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    #echo "Let's turn the microphone over the cow!"
-    cat art/claps.txt
-    #cowsay Hello, my friend!
-    #apt-get install espeak -y
-    #espeak "Now, we will ask you few questions to determine your install. If you ever experience any problems with this, it's because you decided not to download everything that is here"
-
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
@@ -73,13 +70,13 @@ main()
     read ans
     if [[ $ans == "A" || $ans == "a" ]]; then
       install_nmap
-      install_HULK
       install_nikto
+      install_HULK
       install_hping3
       install_GoldenEye
       install_slowloris
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "INSTALLATION HAS BEEN COMPLETED, YOU ARE READY TO EXPLORE ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
       exit 1
    else
@@ -89,7 +86,7 @@ main()
     if [[ $answer1 == "Y" || $answer1 == "y" ]]; then
       install_nmap
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "NMAP HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     else
       echo "It's impossible to do scans using Sleepy Duck without nmap, bye!"
@@ -101,7 +98,7 @@ main()
     if [[ $answer2 == "Y" || $answer2 == "y" ]]; then
       install_nikto
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "NIKTO HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     fi
     # SLOWLORIS installation
@@ -111,7 +108,7 @@ main()
     if [[ $answer3 == "Y" || $answer3 == "y" ]]; then
       install_slowloris
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "SLOWLORIS HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     fi
     # HULK installation
@@ -120,7 +117,7 @@ main()
     if [[ $answer4 == "Y" || $answer4 == "y" ]]; then
       install_HULK
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "HULK HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     fi
     # GoldenEye installation
@@ -129,7 +126,7 @@ main()
     if [[ $answer5 == "Y" || $answer5 == "y" ]]; then
       install_GoldenEye
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "GOLDEN EYE HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     fi
 
@@ -139,13 +136,20 @@ main()
     if [[ $answer6 == "Y" || $answer6 == "y" ]]; then
       install_hping3
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "DONE ! ! !"
+      echo "HPING3 HAS BEEN INSTALLED ! ! !"
       echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
 fi
 fi
 }
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
    echo "This is Debian based, we will proceed"
-  # apt
+   echo -n "Would you like to update and upgrade your APT package? Note: will take a significant amount of time! Type Y/N and press [ENTER]"
+   read apt
+   if [[ $apt == "Y" || $apt == "y" ]]; then
+       apt
+       continue
+   else
+       continue
+    fi
    main
 fi
