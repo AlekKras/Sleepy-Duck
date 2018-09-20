@@ -54,15 +54,15 @@ install_hping3()
 
 main()
 {
-    apt-get install xcowsay -y
+    #apt-get install cowsay -y
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo "Let's turn the microphone over the cow!"
+    #echo "Let's turn the microphone over the cow!"
     cat art/claps.txt
-    xcowsay Hello, my friend!
-    apt-get install espeak -y
-    espeak "Now, we will ask you few questions to determine your install. If you ever experience any problems with this, it's because you decided not to download everything that is here"
+    #cowsay Hello, my friend!
+    #apt-get install espeak -y
+    #espeak "Now, we will ask you few questions to determine your install. If you ever experience any problems with this, it's because you decided not to download everything that is here"
 
     # automatic or manual installation?
     echo -n "Would you like to install everything automatically or manually? (A/M)"
@@ -142,6 +142,6 @@ fi
 }
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
    echo "This is Debian based, we will proceed"
-   apt
+  # apt
    main
 fi
