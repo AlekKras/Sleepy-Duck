@@ -5,63 +5,63 @@
 # If you happen to know how to fix an issue, make a pull request
 apt()
 {
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo apt autoremove -y
+    apt-get update -y
+    apt-get upgrade -y
+    apt autoremove -y
 }
 
 
 install_nmap()
 {
-    sudo apt-get insatll nmap -y
+    apt-get insatll nmap -y
 }
 
 install_nikto()
 {
-    sudo mkdir nikto
+    mkdir nikto
     cd nikto/
-    sudo wget https://github.com/sullo/nikto/archive/master.zip
+    wget https://github.com/sullo/nikto/archive/master.zip
     unzip master.zip
     cd nikto-master/program
-    sudo apt-get inistall perl -y
+    apt-get inistall perl -y
     perl nikto.pl
 }
 
 install_slowloris()
 {
-    sudo apt-get install perl -y
-    sudo apt-get install libwww-mechanize-shell-perl
-    sudo apt-get install perl-mechanize
+    apt-get install perl -y
+    apt-get install libwww-mechanize-shell-perl
+    apt-get install perl-mechanize
 }
 
 install_HULK()
 {
-    sudo apt-get install git -y
+    apt-get install git -y
     git clone https://github.com/grafov/hulk.git
 }
 
 install_GoldenEye()
 {
-    sudo apt-get install git -y
+    apt-get install git -y
     git clone https://github.com/jseidl/GoldenEye.git
 }
 
 install_hping3()
 {
-    sudo apt-get install hping3 -y
+    apt-get install hping3 -y
 }
 
 
 main()
 {
-    sudo apt-get install xcowsay -y
+    apt-get install xcowsay -y
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
     echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
     echo "Let's turn the microphone over the cow!"
     cat art/claps.txt
     xcowsay Hello, my friend!
-    sudo apt-get install espeak -y
+    apt-get install espeak -y
     espeak "Now, we will ask you few questions to determine your install. If you ever experience any problems with this, it's because you decided not to download everything that is here"
 
     # automatic or manual installation?
