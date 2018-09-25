@@ -20,15 +20,7 @@ echo "$target" > target.txt #use  >> if you would like to append instead of over
 # For first-timers, perform everything is an option suggested
 nmap()
 {
-
-    echo "
-
-          _  _  __  __    __    ____
-          ( \( )(  \/  )  /__\  (  _ \
-          )  (  )    (  /(__)\  )___/
-          (_)\_)(_/\/\_)(__)(__)(__)
-          "
-
+    cat art/nmap.txt
     echo -n "Would you like to run a basic vulnerability assessment [nmap]?(y/n)"
     read response
     if [[ $response == "Y" || $response == "y" ]]; then
@@ -75,12 +67,7 @@ nmap()
 #dos - slowloris
 slowloris()
 {
-      echo "
-      ___  __    _____  _    _  __    _____  ____  ____  ___
-     / __)(  )  (  _  )( \/\/ )(  )  (  _  )(  _ \(_  _)/ __)
-     \__ \ )(__  )(_)(  )    (  )(__  )(_)(  )   / _)(_ \__ \
-     (___/(____)(_____)(__/\__)(____)(_____)(_)\_)(____)(___/
-      "
+    cat art/slowloris.txt
     echo -n "Would you like to perform DoS?(y/n)"
     read dos
     if [[ $dos == "Y" || $dos == "y" ]]; then
@@ -102,12 +89,7 @@ slowloris()
 #nikto - overall basic scan [vulnerability assessment]
 nikto()
 {
-    echo "
-    _  _  ____  _  _  ____  _____
-   ( \( )(_  _)( )/ )(_  _)(  _  )
-    )  (  _)(_  )  (   )(   )(_)(
-   (_)\_)(____)(_)\_) (__) (_____)
-    "
+    cat art/nikto.txt
     echo -n "Would you like to perform a vulnerability assessment?(y/n)?"
     read nikto
     if [[ $nikto == "Y" || $nikto == "y" ]]; then
@@ -137,12 +119,7 @@ nikto()
 #hulk
 hulk()
 {
-    echo "
-    _   _  __  __  __    _  _
-   ( )_( )(  )(  )(  )  ( )/ )
-    ) _ (  )(__)(  )(__  )  (
-   (_) (_)(______)(____)(_)\_)
-    "
+    cat art/hulk.txt
     echo -n "Would you like to perform DoS? [HULK] (y/n)?"
     read hulk
     if [[ $hulk == "Y" || $hulk == "y" ]]; then
@@ -165,13 +142,7 @@ hulk()
 hping()
 {
 
-    echo "
-    _   _  ____  ____  _  _  ___
-   ( )_( )(  _ \(_  _)( \( )/ __)
-    ) _ (  )___/ _)(_  )  (( (_-.
-   (_) (_)(__)  (____)(_)\_)\___/
-
-    "
+    cat art/hping3.txt
     echo -n "Would you like to perform Flood? [hping3] (y/n)?"
     read hping
     if [[ $hping == "Y" || $hping == "y" ]]; then
@@ -273,18 +244,7 @@ fi
 #GoldenEye
 golden_eye()
 {
-  echo "
-  ___  _____  __    ____  ____  _  _
- / __)(  _  )(  )  (  _ \( ___)( \( )
-( (_-. )(_)(  )(__  )(_) ))__)  )  (
- \___/(_____)(____)(____/(____)(_)\_)
-  "
-  echo "
-  ____  _  _  ____
- ( ___)( \/ )( ___)
-  )__)  \  /  )__)
- (____) (__) (____)
-  "
+  cat art/goldeneye.txt
   echo -n "Would you like to perform DoS? [GoldenEye] (y/n)?"
   read eye
   if [[ $eye == "Y" || $eye == "y" ]]; then
