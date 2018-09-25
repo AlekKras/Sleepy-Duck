@@ -1,3 +1,4 @@
 # Don't track content of this folder
 tools/
+results/*
 target.txt

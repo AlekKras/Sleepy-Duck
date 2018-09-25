@@ -20,7 +20,7 @@ nmap()
         echo "We will not run any of scripts as you said"
     fi
 }
-nmap
+#nmap
 #dos - slowloris
 slowloris()
 {
@@ -38,4 +38,30 @@ slowloris()
         echo "We will not run any of scripts as you said"
     fi
 }
-slowloris
+#slowloris
+#nikto - overall basic scan [vulnerability assessment]
+nikto()
+{
+    echo -n "Would you like to perform a vulnerability assessment?(y/n)?"
+    read nikto
+    if [[ $nikto == "Y" || $nikto == "y" ]]; then
+        cd tools/nikto
+        touch attack_nikto.txt
+        echo "DEBUG _ _ _ "
+        pwd
+        echo "DEBUG - - - "
+        echo -n "nikto -Display 1234EP -o report_nikto.html -Format htm -Tuning 58 -host " > attack_nikto.txt
+        cd ../..
+        echo "WE ARE BACK" && pwd
+        echo -n "$target" >> tools/nikto/attack_nikto.txt
+        cd tools/nikto
+        bash attack_nikto.txt
+        # move report_nikto.html to /results
+        mv report_nikto.html ../..
+        cd ../..
+        mv report_nikto.html results/
+    else
+        echo "We will not run any of scripts as you said"
+    fi
+}
+nikto
