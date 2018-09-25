@@ -37,7 +37,7 @@ install_slowloris()
     apt-get install perl-mechanize && apt-get install libfuture-perl
     cd tools/
     git clone https://github.com/llaera/slowloris.pl.git
-    cd ..
+    cd ../..
 }
 
 install_HULK()
