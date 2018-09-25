@@ -1,18 +1,35 @@
 #!/bin/bash
+# Welcome to the Sleepy Duck
+# Author: Aleksandr Krasnov
+# Contact: https://www.linkedin.com/in/alekkras
 
 
 # Ask the user for the target
+# The webserver would be the target
 intro()
 {
 echo -n "What is your target?"
 read target
 echo "$target" > target.txt #use  >> if you would like to append instead of overwriting
 }
-intro
-# scripts nmap - vulnerability assessment
+#intro
+
+
+
+# If you would like to perform vulnerability assessment, that is the first thing you should do
+# For first-timers, perform everything is an option suggested
 nmap()
 {
-    echo -n "Would you like to run a basic vulnerability assessment?(y/n)"
+
+    echo "
+
+          _  _  __  __    __    ____
+          ( \( )(  \/  )  /__\  (  _ \
+          )  (  )    (  /(__)\  )___/
+          (_)\_)(_/\/\_)(__)(__)(__)
+          "
+
+    echo -n "Would you like to run a basic vulnerability assessment [nmap]?(y/n)"
     read response
     if [[ $response == "Y" || $response == "y" ]]; then
         echo "- - - - - - - - - - - - - - - - - - - - - - -"
@@ -52,10 +69,18 @@ nmap()
         echo "We will not run any of scripts as you said"
     fi
 }
-nmap
+#nmap
+
+
 #dos - slowloris
 slowloris()
 {
+      echo "
+      ___  __    _____  _    _  __    _____  ____  ____  ___
+     / __)(  )  (  _  )( \/\/ )(  )  (  _  )(  _ \(_  _)/ __)
+     \__ \ )(__  )(_)(  )    (  )(__  )(_)(  )   / _)(_ \__ \
+     (___/(____)(_____)(__/\__)(____)(_____)(_)\_)(____)(___/
+      "
     echo -n "Would you like to perform DoS?(y/n)"
     read dos
     if [[ $dos == "Y" || $dos == "y" ]]; then
@@ -71,9 +96,18 @@ slowloris()
     fi
 }
 #slowloris
+
+
+
 #nikto - overall basic scan [vulnerability assessment]
 nikto()
 {
+    echo "
+    _  _  ____  _  _  ____  _____
+   ( \( )(_  _)( )/ )(_  _)(  _  )
+    )  (  _)(_  )  (   )(   )(_)(
+   (_)\_)(____)(_)\_) (__) (_____)
+    "
     echo -n "Would you like to perform a vulnerability assessment?(y/n)?"
     read nikto
     if [[ $nikto == "Y" || $nikto == "y" ]]; then
@@ -97,9 +131,18 @@ nikto()
     fi
 }
 #nikto
+
+
+
 #hulk
 hulk()
 {
+    echo "
+    _   _  __  __  __    _  _
+   ( )_( )(  )(  )(  )  ( )/ )
+    ) _ (  )(__)(  )(__  )  (
+   (_) (_)(______)(____)(_)\_)
+    "
     echo -n "Would you like to perform DoS? [HULK] (y/n)?"
     read hulk
     if [[ $hulk == "Y" || $hulk == "y" ]]; then
@@ -115,9 +158,20 @@ hulk()
     fi
 }
 #hulk
+
+
+
 #hping
 hping()
 {
+
+    echo "
+    _   _  ____  ____  _  _  ___
+   ( )_( )(  _ \(_  _)( \( )/ __)
+    ) _ (  )___/ _)(_  )  (( (_-.
+   (_) (_)(__)  (____)(_)\_)\___/
+
+    "
     echo -n "Would you like to perform Flood? [hping3] (y/n)?"
     read hping
     if [[ $hping == "Y" || $hping == "y" ]]; then
@@ -214,9 +268,23 @@ hping()
 fi
 }
 #hping
+
+
 #GoldenEye
 golden_eye()
 {
+  echo "
+  ___  _____  __    ____  ____  _  _
+ / __)(  _  )(  )  (  _ \( ___)( \( )
+( (_-. )(_)(  )(__  )(_) ))__)  )  (
+ \___/(_____)(____)(____/(____)(_)\_)
+  "
+  echo "
+  ____  _  _  ____
+ ( ___)( \/ )( ___)
+  )__)  \  /  )__)
+ (____) (__) (____)
+  "
   echo -n "Would you like to perform DoS? [GoldenEye] (y/n)?"
   read eye
   if [[ $eye == "Y" || $eye == "y" ]]; then
@@ -232,4 +300,20 @@ golden_eye()
     echo "We will not run any of scripts as you said"
 fi
 }
-golden_eye
+#golden_eye
+
+
+main()
+{
+  cat art/duck.txt
+  echo "Welcome to the Sleepy-Duck"
+  echo "Let's find the target!!!"
+  intro
+  nmap
+  nikto
+  slowloris
+  hulk
+  hping
+  golden_eye
+}
+main
