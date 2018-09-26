@@ -8,8 +8,8 @@
 # The webserver would be the target
 intro()
 {
-echo -n "What is your target?"
-read target
+echo "What is your target?"
+echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ   " ; read target
 echo "$target" > target.txt #use  >> if you would like to append instead of overwriting
 }
 #intro
@@ -21,16 +21,16 @@ echo "$target" > target.txt #use  >> if you would like to append instead of over
 nmap()
 {
     cat art/nmap.txt
-    echo -n "Would you like to run a basic vulnerability assessment [nmap]?(y/n)"
-    read response
+    echo "Would you like to run a basic vulnerability assessment [nmap]?(y/n)"
+    echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read response
     if [[ $response == "Y" || $response == "y" ]]; then
         echo "- - - - - - - - - - - - - - - - - - - - - - -"
         echo "Great! Here are some options for you!"
         echo "1) Automatically perform everything (it should take about 30 mins)"
         echo "2) HTTP headers"
         echo "3) Any possible exploits"
-        echo -n "Which one would you like to perform?"
-        read ch
+        echo "Which one would you like to perform?"
+        echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read ch
         if [[ $ch == "1" ]]; then
           cd scripts
           bash *.sh
@@ -68,8 +68,8 @@ nmap()
 slowloris()
 {
     cat art/slowloris.txt
-    echo -n "Would you like to perform DoS?(y/n)"
-    read dos
+    echo "Would you like to perform DoS?(y/n)"
+    echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read dos
     if [[ $dos == "Y" || $dos == "y" ]]; then
         cd tools/slowloris.pl
         touch attack.txt
@@ -90,8 +90,8 @@ slowloris()
 nikto()
 {
     cat art/nikto.txt
-    echo -n "Would you like to perform a vulnerability assessment?(y/n)?"
-    read nikto
+    echo "Would you like to perform a vulnerability assessment?(y/n)?"
+    echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read nikto
     if [[ $nikto == "Y" || $nikto == "y" ]]; then
         cd tools/nikto
         touch attack_nikto.txt
@@ -116,8 +116,8 @@ nikto()
 hulk()
 {
     cat art/hulk.txt
-    echo -n "Would you like to perform DoS? [HULK] (y/n)?"
-    read hulk
+    echo "Would you like to perform DoS? [HULK] (y/n)?"
+    echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read hulk
     if [[ $hulk == "Y" || $hulk == "y" ]]; then
         cd tools/nikto/hulk
         touch attack_hulk.txt
@@ -139,8 +139,8 @@ hping()
 {
 
     cat art/hping3.txt
-    echo -n "Would you like to perform Flood? [hping3] (y/n)?"
-    read hping
+    echo "Would you like to perform Flood? [hping3] (y/n)?"
+    echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read hping
     if [[ $hping == "Y" || $hping == "y" ]]; then
         cd results
         mkdir hping
@@ -156,8 +156,8 @@ hping()
         echo "7) Perform ICMP and IGMP floods"
         echo "8) Exit"
         echo "- - - - - - - - - - - - - - - - - - - - - - -"
-        echo -n "Which one would you like to do?"
-        read choice
+        echo "Which one would you like to do?"
+        echo -n "(づ｡◕‿‿◕｡)づ     " ; read choice
         if [[ $choice == "1" ]]; then
           cd hping/
           touch host_alive.txt
@@ -229,8 +229,8 @@ hping()
           bash hping_icmp_igmp.txt
           cd ..
         else
-          echo -n "Would you like to do it over again? (y/n)"
-          read repeat
+          echo "Would you like to do it over again? (y/n)"
+          echo -n "(ಠ_ಠ)    " ; read repeat
           if [[ $repeat == "Y" || $repeat == "y" ]]; then
             hping
           else
@@ -248,8 +248,8 @@ fi
 golden_eye()
 {
   cat art/goldeneye.txt
-  echo -n "Would you like to perform DoS? [GoldenEye] (y/n)?"
-  read eye
+  echo "Would you like to perform DoS? [GoldenEye] (y/n)?"
+  echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read eye
   if [[ $eye == "Y" || $eye == "y" ]]; then
     cd tools/GoldenEye/
     touch attack_dos.txt
@@ -265,7 +265,6 @@ fi
 }
 #golden_eye
 
-
 main()
 {
   cat art/duck.txt
@@ -278,5 +277,6 @@ main()
   hulk
   hping
   golden_eye
+  cat art/bye.txt
 }
 main
