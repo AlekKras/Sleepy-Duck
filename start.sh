@@ -33,7 +33,7 @@ nmap()
         echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read ch
         if [[ $ch == "1" ]]; then
           cd scripts
-          bash 1.sh
+          bash 1.sh.sh 
         elif [[ $ch == "2" ]]; then
           cd scripts
           bash 2.sh
