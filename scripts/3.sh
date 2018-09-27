@@ -8,5 +8,4 @@ nmap --script http-stored-xss.nse -iL ../target.txt
 nmap --script http-stored-xss.nse -iL ../target.txt
 nmap --script=firewalk --traceroute -iL ../target.txt
 nmap -p80 --script http-devframework.nse -iL ../target.txt
-nmap --script http-csrf.nse -iL ../target.txt
-
+nmap --script http-csrf.nse -iL ../target.txt && pwd && cd .. && pwd

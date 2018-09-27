@@ -20,6 +20,7 @@ echo "$target" > target.txt #use  >> if you would like to append instead of over
 # For first-timers, perform everything is an option suggested
 nmap()
 {
+    pwd
     cat art/nmap.txt
     echo "Would you like to run a basic vulnerability assessment [nmap]?(y/n)"
     echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read response
@@ -33,7 +34,7 @@ nmap()
         echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read ch
         if [[ $ch == "1" ]]; then
           cd scripts
-          bash 1.sh.sh 
+          bash 1.sh.sh
         elif [[ $ch == "2" ]]; then
           cd scripts
           bash 2.sh
@@ -258,8 +259,9 @@ main()
   echo "Welcome to the Sleepy-Duck"
   echo "Let's find the target!!!"
   intro
-  nmap
+  #nmap
   nikto
+  nmap
   slowloris
   hulk
   hping

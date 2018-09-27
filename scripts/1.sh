@@ -29,3 +29,4 @@ nmap --script http-traceroute -iL ../target.txt
 nmap --script http-vhosts -iL ../target.txt
 nmap --script http-waf-detect -iL ../target.txt
 nmap -p80 --script http-dombased-xss.nse -iL ../target.txt
+cd ..
