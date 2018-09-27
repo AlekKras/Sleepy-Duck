@@ -33,26 +33,13 @@ nmap()
         echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read ch
         if [[ $ch == "1" ]]; then
           cd scripts
-          bash *.sh
+          bash 1.sh
         elif [[ $ch == "2" ]]; then
           cd scripts
-          bash firewalk.sh
-          bash dns.sh
-          bash http_common.sh
-          bash ipv6.sh
-          bash server-header.sh
-          bash smb_common.sh
-          bash traceroute.sh
-          bash security-headers.sh
-          bash header.sh
-          bash http_vuln_common.sh
+          bash 2.sh
         elif [[ $ch == "3" ]]; then
           cd scripts
-          bash affiliation.sh
-          bash auth.sh
-          bash git.sh
-          bash malware.sh
-          bash waf.sh
+          bash 3.sh
         else
           echo "We will not run any of scripts as you said"
         fi
