@@ -3,6 +3,17 @@
 # Hire me: https://www.linkedin.com/in/alekkras
 # In case of any problems, raise an issue
 # If you happen to know how to fix an issue, make a pull request
+
+# Define colors for pretty output
+
+red=$'\e[1;31m'
+grn=$'\e[1;32m'
+yel=$'\e[1;33m'
+blu=$'\e[1;34m'
+mag=$'\e[1;35m'
+cyn=$'\e[1;36m'
+end=$'\e[0m'
+
 apt()
 {
     apt-get update -y
@@ -64,12 +75,12 @@ install_hping3()
 
 main()
 {
-    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-    echo "WELCOME TO THE SLEEPY DUCK INSTALLER!!!"
-    echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+    echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+    echo "${grn}WELCOME TO THE SLEEPY DUCK INSTALLER!!!${end}"
+    echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     cat art/duck.txt
     # automatic or manual installation?
-    echo -n "Would you like to install everything automatically or manually? (A/M)"
+    echo -n "Would you like to install everything ${grn}automatically${end} or ${red}manually${end}? (A/M)"
     read ans
     if [[ $ans == "A" || $ans == "a" ]]; then
       install_nmap
@@ -78,75 +89,75 @@ main()
       install_hping3
       install_GoldenEye
       install_slowloris
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "INSTALLATION HAS BEEN COMPLETED, YOU ARE READY TO EXPLORE ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}INSTALLATION HAS BEEN COMPLETED, YOU ARE READY TO EXPLORE ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
       exit 1
    else
     # NMAP installation
-    echo -n "Would you like to install nmap?[Hihgly recommended] Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}nmap${end}?[Hihgly recommended] Type Y/N and press [ENTER]"
     read answer1
     if [[ $answer1 == "Y" || $answer1 == "y" ]]; then
       install_nmap
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "NMAP HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}NMAP HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     else
-      echo "It's impossible to do scans using Sleepy Duck without nmap, bye!"
+      echo "${red} It's impossible to do scans using Sleepy Duck without nmap, bye! ${end}"
     fi
 
     # NIKTO installation
-    echo -n "Would you like to install nikto? Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}nikto${end}? Type Y/N and press [ENTER]"
     read answer2
     if [[ $answer2 == "Y" || $answer2 == "y" ]]; then
       install_nikto
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "NIKTO HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}NIKTO HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     fi
     # SLOWLORIS installation
 
-    echo -n "Would you like to install slowloris? Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}slowloris${end}? Type Y/N and press [ENTER]"
     read answer3
     if [[ $answer3 == "Y" || $answer3 == "y" ]]; then
       install_slowloris
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "SLOWLORIS HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}SLOWLORIS HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     fi
     # HULK installation
-    echo -n "Would you like to install HULK? Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}HULK${end}? Type Y/N and press [ENTER]"
     read answer4
     if [[ $answer4 == "Y" || $answer4 == "y" ]]; then
       install_HULK
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "HULK HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}HULK HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     fi
     # GoldenEye installation
-    echo -n "Would you like to install GoldenEye? Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}GoldenEye${end}? Type Y/N and press [ENTER]"
     read answer5
     if [[ $answer5 == "Y" || $answer5 == "y" ]]; then
       install_GoldenEye
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "GOLDEN EYE HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}GOLDEN EYE HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
     fi
 
     # hping3 installation
-    echo -n "Would you like to install hping3? Type Y/N and press [ENTER]"
+    echo -n "Would you like to install ${cyn}hping3${end}? Type Y/N and press [ENTER]"
     read answer6
     if [[ $answer6 == "Y" || $answer6 == "y" ]]; then
       install_hping3
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
-      echo "HPING3 HAS BEEN INSTALLED ! ! !"
-      echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
+      echo "${grn}HPING3 HAS BEEN INSTALLED ! ! !${end}"
+      echo "${grn}- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ${end}"
 fi
 fi
 }
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
    echo "This is Debian based, we will proceed"
-   echo -n "Would you like to update and upgrade your APT package? Note: will take a significant amount of time! Type Y/N and press [ENTER]"
+   echo -n "Would you like to update and upgrade your APT package? ${mag}Note: will take a significant amount of time!${end} Type Y/N and press [ENTER]"
    read apt
    if [[ $apt == "Y" || $apt == "y" ]]; then
        apt
