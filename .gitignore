@@ -2,3 +2,4 @@
 tools/
 results/*
 target.txt
+Ansible/Ansible.retry

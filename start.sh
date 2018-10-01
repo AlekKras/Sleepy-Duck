@@ -265,7 +265,8 @@ golden_eye()
     echo -n "$target" >> tools/GoldenEye/attack_dos.txt
     cd tools/GoldenEye
     bash attack_dos.txt
-    cd ..
+    cd ../..
+    
   else
     echo "We will not run any of scripts as you said"
 fi
