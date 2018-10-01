@@ -16,10 +16,10 @@ My goal is to make sure that the Sleepy Duck is efficient enough that you don't 
 
 In order to start using the Sleepy Duck, you will need to do the following:
 
-[ ] `git clone https://github.com/AlekKras/Sleepy-Duck.git` <br/>
-[ ] `cd Sleepy-Duck` <br/>
-[ ] `sudo bash intro.sh && sudo bash start.sh` <br/>
-[ ] Sit tight :sunglasses: and enjoy (maybe take a nap?) :sleeping: <br/>
+- [ ] `git clone https://github.com/AlekKras/Sleepy-Duck.git` <br/>
+- [ ] `cd Sleepy-Duck` <br/>
+- [ ] `sudo bash intro.sh && sudo bash start.sh` <br/>
+- [ ] Sit tight :sunglasses: and enjoy (maybe take a nap?) :sleeping: <br/>
 
 ### Prerequisites
 
