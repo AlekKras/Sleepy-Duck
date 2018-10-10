@@ -1,6 +1,7 @@
 # <img src="art/logo.png">  Sleepy Duck  <img src="art/logo.png">
 
 
+
 It's an open source project created for performing vulnerability assessments automatically.
 
 ## Why Sleepy Duck? 
@@ -13,6 +14,7 @@ My goal is to make sure that the Sleepy Duck is efficient enough that you don't 
 
 
 ## Getting Started
+
 
 In order to start using the Sleepy Duck, you will need to do the following:
 
@@ -72,6 +74,25 @@ sudo apt-get update
 sudo apt-get install ansible
 sudo apt-get autoremove
 ```
+
+
+#### ALTERNATIVE OPTION
+
+I have added Dockefile of Ubuntu image so you can build a Dockerfile and run the Sleepy-Duck in the isolated environment. For such thing, a new scripts will be written that does an automatic scanning and installation of everything once you are in the Docker image [Will be released in the version **1.5**]
+
+So far, once you git cloned the repo, go to the repo, and find a `Dockerfile`
+
+Run the following:
+```
+docker build -t "sleepy_duck:dockerfile" .
+```
+
+Once you have built it, run the image as bash:
+```
+docker run -it sleepy_duck:dockerfile bash
+```
+
+Once you are inside the image, cd to Sleepy-Duck and perform the script
 
 ## Running the program 
 
