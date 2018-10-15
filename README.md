@@ -51,6 +51,10 @@ Then type `vagrant up && vagrant ssh` and you are good to go.
 
 ### Installing
 
+YOU CAN ALWAYS PULL THE IMAGE FROM THE DOCKER HUB:
+`docker pull alekkras/sleepy_duck`
+
+
 Installation has been made easy for you. Again, you have 2 options:
 
 - Run `sudo bash intro.sh` 
