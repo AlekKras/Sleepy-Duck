@@ -4,8 +4,6 @@ LABEL Aleksandr Krasnov "alekforwork@gmail.com"
 
 USER root
 
-RUN apt-get update && apt-get install -y git
-
-RUN git clone https://github.com/AlekKras/Sleepy-Duck.git && cd Sleepy-Duck
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && apt-get install -y git && \
+    git clone https://github.com/AlekKras/Sleepy-Duck.git && cd Sleepy-Duck && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
