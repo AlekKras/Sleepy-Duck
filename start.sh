@@ -101,6 +101,7 @@ nikto()
         cd tools/nikto
         bash attack_nikto.txt
         # move report_nikto.html to /results
+        pwd
         mv report_nikto.html ../..
         cd ../..
         mv report_nikto.html results/
@@ -120,12 +121,12 @@ hulk()
     echo ""
     echo -n "${grn}༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃${end}━${yel}☆ﾟ. * ･ ｡ﾟ   ${end}" ; read hulk
     if [[ $hulk == "Y" || $hulk == "y" ]]; then
-        cd tools/nikto/hulk
+        cd tools/hulk
         touch attack_hulk.txt
         echo -n "python hulk.py -site " > attack_hulk.txt
-        cd ../.. && cd ..
-        echo -n "$target" >> tools/nikto/hulk/attack_hulk.txt
-        cd tools/nikto/hulk
+        cd ..&& cd ..
+        echo -n "$target" >> tools/nikto/attack_hulk.txt
+        cd tools/hulk
         bash attack_hulk.txt
     else
         echo "We will not run any of scripts as you said"
@@ -144,6 +145,7 @@ hping()
     echo ""
     echo -n "${grn}༼(∩ ͡°╭͜ʖ╮͡ ͡°)༽⊃${end}━${yel}☆ﾟ. * ･ ｡ﾟ   ${end}" ; read hping
     if [[ $hping == "Y" || $hping == "y" ]]; then
+        mkdir results/
         cd results
         mkdir hping
         cd ..
